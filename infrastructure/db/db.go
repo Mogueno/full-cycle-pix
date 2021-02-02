@@ -2,7 +2,7 @@ package db
 
 import (
 
-	"github.com/codeedu/imersao/codepix-go/domain/model"
+	"github.com/Mogueno/full-cycle-pix/domain/model"
 	"log"
 	"os"
 	"path/filepath"

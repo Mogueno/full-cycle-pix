@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/codeedu/imersao/codepix-go/infrastructure/go"
+	"github.com/Mogueno/full-cycle-pix/infrastructure/go"
 	"github.com/jinzhu/gorm"
 )
 

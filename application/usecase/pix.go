@@ -1,6 +1,6 @@
 package usecase
 
-import "github.com/codeedu/imersao/codepix-go/domain/model"
+import "github.com/Mogueno/full-cycle-pix/domain/model"
 
 type PixUseCast struct {
 	PixKeyRepository model.PixKeyRepositoryInterface
