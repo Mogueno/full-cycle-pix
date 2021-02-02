@@ -1,35 +1,36 @@
-package db 
+package db
 
 import (
-
-	"github.com/Mogueno/full-cycle-pix/domain/model"
 	"log"
 	"os"
 	"path/filepath"
 	"runtime"
 
-	"github.com/junzhu/gorm"
+	"github.com/mogueno/domain/model"
+
+	"github.com/jinzhu/gorm"
 	"github.com/joho/godotenv"
-	- "github.com/lib/pq"
-	- "gorm.io/driver/sqlite"
+	_ "github.com/lib/pq"
+	_ "gorm.io/driver/sqlite"
 )
-func init(){
-	_,b,_,_ := runtime.Caller(0)
-	basepath:= filepath.Dir(b)
 
-	err:=godotenv.Load(basepath + "/../../.env")
+func init() {
+	_, b, _, _ := runtime.Caller(0)
+	basepath := filepath.Dir(b)
 
-	if err!= nil {
+	err := godotenv.Load(basepath + "/../../.env")
+
+	if err != nil {
 		log.Fatalf("error loading .env files")
 	}
 }
 
-func ConnectDB(env string) *gorm.DB{
+func ConnectDB(env string) *gorm.DB {
 	var dsn string
-	var db *gorm.dbv
+	var db *gorm.DB
 	var err error
 
-	if env!= "test"{
+	if env != "test" {
 		dsn = os.Getenv("dsn")
 		db, err = gorm.Open(os.Getenv("dbType"), dsn)
 
@@ -38,17 +39,17 @@ func ConnectDB(env string) *gorm.DB{
 		db, err = gorm.Open(os.Getenv("dbTypeTest"), dsn)
 	}
 
-	if err!= nil {
+	if err != nil {
 		log.Fatalf("Error connection to database : %v", err)
 		panic(err)
 	}
-	
-	if os.Getenv("debug") == "true"{
+
+	if os.Getenv("debug") == "true" {
 		db.LogMode(true)
 	}
 
-	if os.Getenv("AutoMigrateDb") == "true"{
-		db.AutoMigrate(&model.Bank{}, &model.Account{}, &model.PixKey{},&model.Transaction{})
+	if os.Getenv("AutoMigrateDb") == "true" {
+		db.AutoMigrate(&model.Bank{}, &model.Account{}, &model.PixKey{}, &model.Transaction{})
 	}
 
 	return db

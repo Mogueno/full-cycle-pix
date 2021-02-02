@@ -2,8 +2,9 @@ package usecase
 
 import (
 	"errors"
-	"github.com/Mogueno/full-cycle-pix/domain/model"
 	"log"
+
+	"github.com/mogueno/domain/model"
 )
 
 type TransactionUseCase struct {

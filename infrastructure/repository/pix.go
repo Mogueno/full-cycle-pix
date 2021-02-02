@@ -2,8 +2,9 @@ package repository
 
 import (
 	"fmt"
-	"github.com/Mogueno/full-cycle-pix/domain/model"
+
 	"github.com/jinzhu/gorm"
+	"github.com/mogueno/domain/model"
 )
 
 type PixKeyRepositoryDb struct {

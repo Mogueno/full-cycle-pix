@@ -1,8 +1,8 @@
 package usecase
 
-import "github.com/Mogueno/full-cycle-pix/domain/model"
+import "github.com/mogueno/domain/model"
 
-type PixUseCast struct {
+type PixUseCase struct {
 	PixKeyRepository model.PixKeyRepositoryInterface
 }
 

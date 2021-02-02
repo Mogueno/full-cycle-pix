@@ -2,7 +2,8 @@ package repository
 
 import (
 	"fmt"
-	"github.com/Mogueno/full-cycle-pix/domain/model"
+
+	"github.com/mogueno/domain/model"
 	"gorm.io/gorm"
 )
 
